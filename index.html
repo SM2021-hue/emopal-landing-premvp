@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmoPal: Emotional Support for Caregivers & Survivors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- 
+    Narrative Plan:
+    1. Hero Section: Strong hook, clear value proposition, and primary call-to-action.
+    2. The Problem (The Parallel Struggle): Use a side-by-side layout to show empathy for the core emotional challenges of caregivers and survivors.
+    3. Real Testimonials: Add powerful, real quotes from the community.
+    4. The Data (Proof of the Problem): Visualize the components of burnout and the post-cancer identity struggle.
+    5. The Solution (Path to Reconnection): Introduce the concept of EmoPalAI.
+    6. The Ask (Email Capture): A clear section for users to join as founding members.
+    7. The Vision & Trust: Communicate future plans, data privacy commitment, and answer common questions (FAQ).
+    8. Final CTA: A concluding call-to-action in the footer.
+
+    Color Palette Chosen: 'Brilliant Blues' (#00A1E4, #0077C0, #005A9E, #F2F2F2, #333333) for a professional, hopeful, and high-contrast design.
+
+    Confirmation: NO SVG graphics or Mermaid JS are used in this file. All charts are rendered on Canvas by Chart.js. All diagrams are built with standard HTML and Tailwind CSS.
+    -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F2F2F2;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 350px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="text-[#333333]">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center py-16 md:py-24">
+            <h1 class="text-4xl md:text-6xl font-bold text-[#005A9E] mb-4">Find Your Way Back to Each Other.</h1>
+            <p class="text-lg md:text-xl text-[#0077C0] max-w-3xl mx-auto mb-8">Beyond survival, there's a silent
+                emotional battle faced by millions. This is the story of the caregiver and the survivor.</p>
+            <a href="#founding-members"
+                class="bg-[#0077C0] text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-[#005A9E] transition-colors duration-300">Request
+                Early Access</a>
+        </header>
+
+        <main class="space-y-16">
+
+            <section id="scale">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#005A9E] mb-2">A Shared Struggle on a Massive Scale</h2>
+                    <p class="max-w-3xl mx-auto text-lg">When cancer enters a life, it never affects just one person.
+                        For every patient fighting, there is often a loved one fighting alongside them, facing a unique
+                        and profound struggle that goes unseen and unheard.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <p class="text-6xl font-bold text-[#00A1E4]">18.1 Million</p>
+                        <p class="text-xl mt-2 text-[#0077C0]">Cancer Survivors in the U.S.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <p class="text-6xl font-bold text-[#00A1E4]">53 Million+</p>
+                        <p class="text-xl mt-2 text-[#0077C0]">Caregivers in the U.S.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="two-sides">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#005A9E] mb-2">Two Sides of the Same Coin</h2>
+                    <p class="max-w-3xl mx-auto text-lg">Though their paths are different, the caregiver and survivor
+                        often walk parallel journeys of isolation, burnout, and loss of identity. They are profoundly
+                        connected by the experience, yet can feel worlds apart.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-2xl font-bold text-center text-[#0077C0] mb-4">The Caregiver's Reality</h3>
+                        <ul class="space-y-3 list-inside list-disc text-lg">
+                            <li>"I'm also burned out, lonely, and sometimes feel like I don't exist."</li>
+                            <li>"Being the caregiver is lonelier than being the sick one."</li>
+                            <li>"No one ever asks the caregiver how they're doing."</li>
+                            <li>"You can't set yourself on fire to keep someone warm."</li>
+                            <li>"Caregiving is becoming burdensome just because people have forgotten emotions over
+                                time."</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-2xl font-bold text-center text-[#00A1E4] mb-4">The Survivor's Echo</h3>
+                        <ul class="space-y-3 list-inside list-disc text-lg">
+                            <li>"I survived cancer. But I don't feel like I survived me."</li>
+                            <li>"Inside, I still feel broken."</li>
+                            <li>"I still feel lost and broken, but I'm working on it."</li>
+                            <li>"The best revenge against cancer is to live well."</li>
+                            <li>"I thought I was undead for about half a year."</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="testimonials">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#005A9E] mb-2">Real Stories, Real Voices</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-8 flex flex-col">
+                        <p class="text-2xl italic text-[#0077C0] flex-grow">"What was the hardest emotional moment for
+                            you, even if no one else saw it? Knowing my husband would never be my husband again."</p>
+                        <p class="mt-4 text-right font-semibold text-lg">- Caregiver, Survey Response</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-8 flex flex-col">
+                        <p class="text-2xl italic text-[#00A1E4] flex-grow">"I'm six months remission and still in
+                            complete shock I had cancer. I don't feel like a 'survivor' - I feel like a victim that was
+                            dragged through to survival by the heroes at my cancer center."</p>
+                        <p class="mt-4 text-right font-semibold text-lg">- Survivor, User Interview</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="caregiver-burnout">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="md:order-2 bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-[#005A9E] mb-2">Anatomy of Caregiver Burnout</h2>
+                        <p class="text-lg mb-4">Caregiver burnout isn't a single feeling; it's a complex web of
+                            emotional and physical exhaustion. It stems from the relentless pressure of responsibility,
+                            emotional suppression, and profound isolation. The voices from caregiver communities reveal
+                            a consistent pattern of high-intensity emotional states that often go completely
+                            unaddressed.</p>
+                        <p class="text-lg">This chart visualizes the core components of burnout reported by caregivers.
+                            The high values across the board illustrate how all-encompassing this state can be, pulling
+                            them in multiple directions at once.</p>
+                    </div>
+                    <div class="md:order-1 bg-white rounded-lg shadow-md p-6">
+                        <div class="chart-container">
+                            <canvas id="caregiverBurnoutChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="survivor-shadow">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-[#005A9E] mb-2">The Shadow of Survival</h2>
+                        <p class="text-lg mb-4">"Beating" cancer is often just the beginning of a new, complex battle.
+                            Survivors speak of feeling incomplete, disconnected from their pre-cancer selves. This isn't
+                            a simple sadness, but a composite of survivor's guilt, a shattered sense of identity, and a
+                            constant, lingering fear.</p>
+                        <p class="text-lg">The feeling of being "broken" or "not whole" is a recurring theme. This
+                            visualization shows the key emotional pieces that make up this difficult post-treatment
+                            reality, where the victory of survival is clouded by a profound sense of loss.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="chart-container">
+                            <canvas id="survivorStruggleChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="unmet-needs">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="md:order-2 bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-3xl font-bold text-[#005A9E] mb-2">A Cry for Support</h2>
+                        <p class="text-lg mb-4">When asked directly, caregivers are clear about what they were missing.
+                            It wasn't just practical help, but deep emotional support and tools for their own recovery.
+                            The desire for a safe space to be vulnerable, and for tools that could help them process
+                            their experience, is nearly universal.</p>
+                        <p class="text-lg">The data overwhelmingly shows that conventional support systems often fail
+                            the caregiver. This chart reflects the powerful consensus from caregivers on the types of
+                            support that would have made a tangible difference during their most difficult times.</p>
+                    </div>
+                    <div class="md:order-1 bg-white rounded-lg shadow-md p-6">
+                        <div class="chart-container h-96 max-h-[450px]">
+                            <canvas id="unmetNeedsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="path-forward">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#005A9E] mb-2">A Path to Reconnection</h2>
+                    <p class="max-w-3xl mx-auto text-lg">Healing from the trauma of illness requires more than time; it
+                        requires reconnection. The gap between caregiver and survivor, born from their separate pains,
+                        can be bridged. The solution lies in creating a new way to communicate and remember the love
+                        that exists beneath the struggle.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <div
+                        class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 text-center">
+                        <div class="flex flex-col items-center">
+                            <span class="text-5xl">🫂</span>
+                            <p class="font-bold text-lg mt-2 text-[#0077C0]">The Disconnect</p>
+                            <p class="text-sm">Two people, one experience, yet emotionally distant.</p>
+                        </div>
+                        <div class="text-4xl text-[#00A1E4] p-2 transform md:rotate-0 rotate-90">&rarr;</div>
+                        <div class="flex flex-col items-center">
+                            <span class="text-5xl">💡</span>
+                            <p class="font-bold text-lg mt-2 text-[#0077C0]">A Gentle Nudge</p>
+                            <p class="text-sm">An A.I. companion designed for emotional remembrance.</p>
+                        </div>
+                        <div class="text-4xl text-[#00A1E4] p-2 transform md:rotate-0 rotate-90">&rarr;</div>
+                        <div class="flex flex-col items-center">
+                            <span class="text-5xl">💬</span>
+                            <p class="font-bold text-lg mt-2 text-[#0077C0]">Shared Memories</p>
+                            <p class="text-sm">Memory prompts & check-ins to spark conversation.</p>
+                        </div>
+                        <div class="text-4xl text-[#00A1E4] p-2 transform md:rotate-0 rotate-90">&rarr;</div>
+                        <div class="flex flex-col items-center">
+                            <span class="text-5xl">🤝</span>
+                            <p class="font-bold text-lg mt-2 text-[#0077C0]">The Reconnection</p>
+                            <p class="text-sm">Finding the way back to each other.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="founding-members" class="bg-white rounded-lg shadow-md p-8 md:p-12 text-center">
+                <h2 class="text-3xl font-bold text-[#005A9E] mb-2">Become a Founding Member</h2>
+                <p class="max-w-2xl mx-auto text-lg mb-6">Join our first cohort of users and help shape the future of
+                    emotional support. As a founding member, you'll get early access, a direct line to our team, and a
+                    place in our private community. Your voice will build this.</p>
+                <form class="max-w-lg mx-auto flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Enter your email address"
+                        class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#00A1E4]"
+                        required>
+                    <button type="submit"
+                        class="bg-[#0077C0] text-white font-bold py-3 px-6 rounded-md hover:bg-[#005A9E] transition-colors duration-300">Request
+                        Early Access</button>
+                </form>
+            </section>
+
+            <section id="vision-security">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <h3 class="text-2xl font-bold text-[#0077C0] mb-4">Our Vision for the Future</h3>
+                        <p class="text-lg">The journey of caregiving and survival extends beyond one diagnosis. We are
+                            starting with cancer because the need is so profound, but our mission is to provide
+                            emotional support for all who need it. We plan to extend our platform to help those
+                            navigating:</p>
+                        <ul class="mt-4 space-y-2 list-disc list-inside">
+                            <li>Alzheimer's & Dementia</li>
+                            <li>Diabetes & Chronic Illness</li>
+                            <li>Caring for Aging Parents</li>
+                            <li>Parents of Children with Long-Term Needs</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <h3 class="text-2xl font-bold text-[#0077C0] mb-4">Your Privacy is Our Foundation</h3>
+                        <p class="text-lg">We understand the sensitivity of your journey. Your trust is paramount. Your
+                            data, your stories, and your emotions are yours alone. We are committed to the highest
+                            standards of data security and privacy. You will always control your information, and it
+                            will never be shared without your explicit consent. This is a safe space, built on a
+                            foundation of security and respect.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="faq">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#005A9E] mb-2">Your Questions, Answered</h2>
+                </div>
+                <div class="max-w-4xl mx-auto space-y-4">
+                    <div class="bg-white rounded-lg shadow-md">
+                        <button
+                            class="faq-question w-full flex justify-between items-center text-left text-xl font-semibold p-6 focus:outline-none">
+                            <span>Who is this for? Can both caregivers and survivors use it?</span>
+                            <span class="text-2xl font-light transform transition-transform duration-300">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="p-6 pt-0 text-lg">Yes, absolutely. Our platform is designed for the dyad—the
+                                caregiver and the survivor. We believe that healing happens together. While each person
+                                will have their own private space for reflection, the core mission is to help you
+                                reconnect with each other through shared experiences and gentle prompts.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md">
+                        <button
+                            class="faq-question w-full flex justify-between items-center text-left text-xl font-semibold p-6 focus:outline-none">
+                            <span>How is my data kept private and secure?</span>
+                            <span class="text-2xl font-light transform transition-transform duration-300">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="p-6 pt-0 text-lg">Your privacy is our most important feature. All data is
+                                encrypted, and you have full control over what you share and when. Our business model is
+                                based on subscriptions, not on selling data. Your personal stories and emotional data
+                                will never be used for advertising or sold to third parties. This is your private space
+                                to heal.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md">
+                        <button
+                            class="faq-question w-full flex justify-between items-center text-left text-xl font-semibold p-6 focus:outline-none">
+                            <span>What is the "founding members" community?</span>
+                            <span class="text-2xl font-light transform transition-transform duration-300">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="p-6 pt-0 text-lg">The founding members' community is a private, safe online space
+                                exclusively for our early users. It's a place to connect with others who understand your
+                                journey, share experiences, and provide direct feedback to our team. Your insights will
+                                be crucial in shaping the platform to be as helpful as possible.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md">
+                        <button
+                            class="faq-question w-full flex justify-between items-center text-left text-xl font-semibold p-6 focus:outline-none">
+                            <span>Is this a replacement for therapy?</span>
+                            <span class="text-2xl font-light transform transition-transform duration-300">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="p-6 pt-0 text-lg">No. We are a tool for emotional support, communication, and
+                                reconnection, not a medical or therapeutic service. We can be a powerful complement to
+                                professional therapy by providing a space for daily reflection and connection, but we do
+                                not replace the advice of licensed mental health professionals.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-16 border-t pt-8 border-gray-300">
+            <p class="text-xl text-[#005A9E] font-semibold mb-6">Ready to start the journey of reconnection?</p>
+            <a href="#founding-members"
+                class="bg-[#0077C0] text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-[#005A9E] transition-colors duration-300">Request
+                Early Access</a>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const primaryColor = '#00A1E4';
+            const secondaryColor = '#0077C0';
+            const tertiaryColor = '#005A9E';
+            const textColor = '#333333';
+            const gridColor = '#e0e0e0';
+
+            function wrapLabels(label) {
+                const max_width = 16;
+                if (typeof label !== 'string' || label.length <= max_width) {
+                    return label;
+                }
+                const words = label.split(' ');
+                let current_line = '';
+                const lines = [];
+                for (let word of words) {
+                    if ((current_line + ' ' + word).trim().length > max_width) {
+                        lines.push(current_line.trim());
+                        current_line = word;
+                    } else {
+                        current_line = (current_line + ' ' + word).trim();
+                    }
+                }
+                if (current_line) {
+                    lines.push(current_line.trim());
+                }
+                return lines;
+            }
+
+            const sharedTooltipConfig = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function (tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                    return label.join(' ');
+                                } else {
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            new Chart(document.getElementById('caregiverBurnoutChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Loneliness', 'Exhaustion', 'Loss of Identity', 'Resentment', 'Guilt'],
+                    datasets: [{
+                        label: 'Intensity of Burnout Factors',
+                        data: [9, 9.5, 8.5, 7.5, 8],
+                        backgroundColor: 'rgba(0, 122, 192, 0.2)',
+                        borderColor: secondaryColor,
+                        pointBackgroundColor: secondaryColor,
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: secondaryColor
+                    }]
+                },
+                options: {
+                    ...sharedTooltipConfig,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: gridColor },
+                            grid: { color: gridColor },
+                            pointLabels: { font: { size: 14 }, color: textColor },
+                            ticks: {
+                                backdropColor: 'transparent',
+                                stepSize: 2,
+                                font: {
+                                    size: 10
+                                },
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 10
+                        }
+                    },
+                    plugins: {
+                        ...sharedTooltipConfig.plugins,
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('survivorStruggleChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Feeling Broken or Lost', 'Fear of Recurrence', "Survivor's Guilt", 'Identity Crisis'],
+                    datasets: [{
+                        label: 'Components of Post-Cancer Struggle',
+                        data: [40, 25, 20, 15],
+                        backgroundColor: [primaryColor, secondaryColor, tertiaryColor, '#58c5f5'],
+                        borderColor: '#F2F2F2',
+                        borderWidth: 4,
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    ...sharedTooltipConfig,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        ...sharedTooltipConfig.plugins,
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: textColor,
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const unmetNeedsLabels = ['Craved Emotional Support', 'Would Use Daily Recovery Tools', 'Wants a Private Community'].map(wrapLabels);
+            new Chart(document.getElementById('unmetNeedsChart'), {
+                type: 'bar',
+                data: {
+                    labels: unmetNeedsLabels,
+                    datasets: [{
+                        label: '% of Caregivers Who Agree',
+                        data: [95, 88, 92],
+                        backgroundColor: [primaryColor, secondaryColor, tertiaryColor],
+                        borderColor: '#F2F2F2',
+                        borderWidth: 2,
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    ...sharedTooltipConfig,
+                    indexAxis: 'y',
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: {
+                                display: false,
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                color: textColor,
+                                font: { size: 12 },
+                                callback: function (value) { return value + '%' }
+                            }
+                        },
+                        y: {
+                            grid: {
+                                display: false,
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                color: textColor,
+                                font: { size: 14 }
+                            }
+                        }
+                    },
+                    plugins: {
+                        ...sharedTooltipConfig.plugins,
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+
+            const faqs = document.querySelectorAll('.faq-question');
+            faqs.forEach(faq => {
+                faq.addEventListener('click', () => {
+                    const answer = faq.nextElementSibling;
+                    const icon = faq.querySelector('span:last-child');
+
+                    if (answer.style.maxHeight) {
+                        answer.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        icon.style.transform = 'rotate(45deg)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
