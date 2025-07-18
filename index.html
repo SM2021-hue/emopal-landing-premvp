@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EmoPal: Emotional Support for Caregivers & Survivors</title>
     <!-- Reddit Pixel -->
-<script>
-!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_hcheq3wsv4yr');rdt('track', 'PageVisit');
-</script>
-<!-- DO NOT MODIFY UNLESS TO REPLACE A USER IDENTIFIER -->
-<!-- End Reddit Pixel -->
+    <script>
+        !function (w, d) { if (!w.rdt) { var p = w.rdt = function () { p.sendEvent ? p.sendEvent.apply(p, arguments) : p.callQueue.push(arguments) }; p.callQueue = []; var t = d.createElement("script"); t.src = "https://www.redditstatic.com/ads/pixel.js", t.async = !0; var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(t, s) } }(window, document); rdt('init', 'a2_hcheq3wsv4yr'); rdt('track', 'PageVisit');
+    </script>
+    <!-- DO NOT MODIFY UNLESS TO REPLACE A USER IDENTIFIER -->
+    <!-- End Reddit Pixel -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,6 +64,7 @@
             transition: max-height 0.3s ease-in-out;
         }
     </style>
+
 </head>
 
 <body class="text-[#333333]">
@@ -255,7 +256,7 @@
                 <p class="max-w-2xl mx-auto text-lg mb-6">Join our first cohort of users and help shape the future of
                     emotional support. As a founding member, you'll get early access, a direct line to our team, and a
                     place in our private community. Your voice will build this.</p>
-                <form class="max-w-lg mx-auto flex flex-col sm:flex-row gap-4">
+                <form id="early-access-form" class="max-w-lg mx-auto flex flex-col sm:flex-row gap-4">
                     <input type="email" placeholder="Enter your email address"
                         class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#00A1E4]"
                         required>
@@ -263,6 +264,9 @@
                         class="bg-[#0077C0] text-white font-bold py-3 px-6 rounded-md hover:bg-[#005A9E] transition-colors duration-300">Request
                         Early Access</button>
                 </form>
+                <div id="success-message" class="hidden mt-4 text-green-700 font-semibold text-lg">
+                    Thank you! We've received your request and will be in touch soon.
+                </div>
             </section>
 
             <section id="vision-security">
@@ -552,6 +556,24 @@
                         icon.style.transform = 'rotate(45deg)';
                     }
                 });
+            });
+
+            const form = document.getElementById('early-access-form');
+            const successMessage = document.getElementById('success-message');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                if (typeof rdt === 'function') {
+                    rdt('track', 'Lead');
+                }
+
+                successMessage.classList.remove('hidden');
+                form.reset();
+
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 5000);
             });
         });
     </script>
